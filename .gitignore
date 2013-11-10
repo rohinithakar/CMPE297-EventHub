@@ -1,6 +1,4 @@
 .classpath
-.project
-.settings
 build
 Lib
 *.jar
