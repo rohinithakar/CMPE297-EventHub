@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Insert title here</title>
+
+<script>
+
+
+</script>
+
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=682447581775162";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div class="fb-login-button" autologoutlink="true" scope="publish_stream" data-show-faces="false" data-width="200" data-max-rows="1" ></div>
+</body>
+</html> 
+
+
+<html>
+<head>
+     <script src="//connect.facebook.net/en_US/all.js"></script>
+     <script>
+
+        window.fbAsyncInit = function()
+        {
+            FB.init
+            (
+                {
+                    appId   : "682447581775162",
+                    status  : true,
+                    cookie  : true,
+                    oauth   : true
+                }
+            );
+        };
+
+        function login()
+        {
+            FB.login
+            (
+                function( response )
+                {
+                    if ( response.authResponse )
+                    {
+                        FB.api
+                        (
+                            "/me",
+                            function( response )
+                            {
+                            	  document.getElementById("fblogin").style.visibility = "hidden";   	  
+                            	  document.getElementById("fblogout").style.visibility = "visible";   	  
+
+                            	  
+                                  document.getElementById( "profile_name" ).style.visibility = "visible";
+                                  document.getElementById( "profile_pic" ).style.visibility = "visible";
+
+                            	
+                                document.getElementById( "profile_name" ).innerHTML = response.name;
+                                document.getElementById( "profile_pic" ).src = "http://graph.facebook.com/" + response.id + "/picture";
+                            }
+                        )
+                    }
+                }
+            );
+        }
+
+        function logout()
+        {
+        	
+      	  document.getElementById("fblogin").style.visibility = "visible";   	  
+    	  document.getElementById("fblogout").style.visibility = "hidden";   	  
+
+        	
+            document.getElementById( "profile_name" ).style.visibility = "hidden";
+            document.getElementById( "profile_pic" ).style.visibility = "hidden";
+
+            
+            FB.logout(function(response) {
+            	  // user is now logged out
+            	});
+        }
+        
+        
+        
+        
+     </script>
+</head>
+<body>
+    <div id="fb-root"></div>
+   <div id = "fblogin"> <a href="javascript:login();"><img src="img/fb-login-button.png"></a></div>
+      <div id = "fblogout" style="visibility:hidden"> <a href="javascript:logout();"><img src="img/facebook_logout_button.png"></a></div>
+   
+    <img id="profile_pic"/>
+    <div id="profile_name"></div>
+    
+    
+</body>
+</html> -->
