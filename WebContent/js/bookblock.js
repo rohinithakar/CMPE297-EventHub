@@ -72,7 +72,7 @@
 			// if we want to specify a selector that triggers the prev() function
 			prevEl : '',
 			// autoplay. If true it overwrites the circular option to true
-			autoplay : false,
+			autoplay : true,
 			// time (ms) between page switch, if autoplay is true
 			interval : 3000,
 			// callback after the flip transition

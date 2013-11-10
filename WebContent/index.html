@@ -48,18 +48,26 @@
 			</div>
 			
 			<div class="right">
-				<a href="index.html" id="home"style="margin-left:250px;font-size: 14px; color: #ffffff" data-inline="true">Home</a> 
+				<div style="display:inline-block; vertical-align:top; margin-left:225px;">
+				<a href="index.html" id="home" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="font-size: 14px; color: #ffffff;" data-inline="true">
+				<span class="ui-button-text">Home</span>
+				</a> 
 				<a id="login-user" style="font-size: 14px; color: #561243" data-inline="true">Login</a>
 				<a id="create-user" style="font-size: 14px; color: #561243;" data-inline="true">Register</a>
-				
-   				<span id = "fblogin" style="data-inline:true;">
+				<span id = "fblogin" style="data-inline:true;">
   				<a href="javascript:login();"> <img src="img/fb-login.png"></a>
    				</span>
-  			    <span id = "fblogout" style="data-inline:true;visibility:hidden;">
-  			    <a href="javascript:logout();" style="margin-left:50px;"><img src="img/facebook_logout_button.png"></a><br>
-  			    <img id="profile_pic"/>
-  			    <span id="profile_name" style="margin-left:50px;data-inline:true;font-size:12px;visibility:hidden;"></span> 
-  			    </span>
+				</div>
+				
+   				
+  			    <div id = "fblogout" style="display:inline-block;visibility:hidden;">
+  			    <img style="data-inline:true;" id="profile_pic"/>
+  			    <div style="display:inline-block;">
+  			    <span id="profile_name" style="data-inline:true;font-size:12px;visibility:hidden;"></span><br/>
+  			    <a href="javascript:logout();"><img src="img/facebook_logout_button.png"></a> 
+ 				</div> 			    	    
+  			    </div>
+  			   
   			</div>
   			      
 				
@@ -79,19 +87,19 @@
 					
 					<div id="bb-bookblock" class="bb-bookblock">
 						<div class="bb-item">
-							<img src="images/demo1/1.jpg" alt="image01"/>
+							<img src="images/demo1/1.jpg" class="bookflip-image" alt="image01"/>
 						</div>
 						<div class="bb-item">
-							<img src="images/demo1/2.jpg" alt="image02"/>
+							<img src="images/demo1/2.jpg" class="bookflip-image" alt="image02"/>
 						</div>
 						<div class="bb-item">
-							<img src="images/demo1/3.jpg" alt="image03"/>
+							<img src="images/demo1/3.jpg" class="bookflip-image" alt="image03"/>
 						</div>
 						<div class="bb-item">
-							<img src="images/demo1/4.jpg" alt="image04"/>
+							<img src="images/demo1/4.jpg" class="bookflip-image" alt="image04"/>
 						</div>
 						<div class="bb-item">
-							<img src="images/demo1/5.jpg" alt="image05"/>
+							<img src="images/demo1/5.jpg" class="bookflip-image" alt="image05"/>
 						</div>
 					</div>
 					
@@ -114,9 +122,11 @@
 				},
 				init = function() {
 					config.$bookBlock.bookblock( {
-						speed : 800,
+						speed : 1000,
 						shadowSides : 0.8,
-						shadowFlip : 0.7
+						shadowFlip : 0.7,
+						autoplay: true,
+						shadows:true
 					} );
 					initEvents();
 				},

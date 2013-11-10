@@ -19,6 +19,11 @@ body #d_header #heading {
 	color: #FFFFFF;
 }
 
+.bookflip-image {
+	max-width: 950px;
+	max-height:525px;
+}
+
 body .d_footer {
 	position: center;
 	text-align: center;
