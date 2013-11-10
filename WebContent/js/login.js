@@ -40,7 +40,7 @@ $(function() {
  */
     $( "#dialog-form1" ).dialog({
       autoOpen: false,
-      height: 350,
+      height: 250,
       width: 400,
       modal: true,
       buttons: {

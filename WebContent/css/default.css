@@ -30,7 +30,9 @@ a {
 	outline: none;
 }
 
-a:hover,
+a:hover{
+	background-color:#49bfc3;
+}
 a:active {
 	color: #777;
 }

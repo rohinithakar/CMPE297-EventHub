@@ -5,7 +5,7 @@ body #d_header {
 }
 
 body #d_header #heading {
-	width: 950px;
+	width: 1020px;
 	height: 120px; color : #FFFFFF;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 32px;
@@ -44,19 +44,30 @@ display: inline;
 
 .ui-dialog-titlebar{
 	color:#FFFFFF;
-	background:#72b890;
+	background:#49bfc3;
+	font-size: 12px;
 }
 
 .ui-button-text{
 	color:#FFFFFF;
-	background:#72b890;
+	background:#49bfc3;
+	font-size: 12px;
 }
 
-label{
+.ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable{
+	max-width:850px;
+}
+
+.validateTips{
+	font-size: 12px;
+}
+
+form label{
     display: inline-block;
     float: left;
     clear: left;
     width: 100px;
+    font-size: 12px;
     
 }
 
@@ -75,7 +86,7 @@ input {
     float: left;
 }
 .right {
-	width: 520px;
+	width: 550px;
     height:120px;
     white-space:nowrap;
     overflow:hidden;
