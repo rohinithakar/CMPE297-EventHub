@@ -43,6 +43,7 @@ window.fbAsyncInit = function()
 
         function login()
         {
+        	console.log("Inside Login..");
             FB.login
             (
                 function( response )
@@ -95,9 +96,11 @@ window.fbAsyncInit = function()
                 	document.getElementById("fblogout").style.visibility = "visible"; 
                 	
                 	//  document.getElementById("fblogout").style.display = "block";   
-
+                
                 	$("#profile_name")[0].style.visibility = "visible";
                 	$("#profile_pic")[0].style.visibility = "visible";
+                	$("#profile_name")[0].style.display = "inline-block";
+                	$("#profile_pic")[0].style.display = "inline-block";
                 	$("#profile_pic")[0].src = "http://graph.facebook.com/" + response.id + "/picture"
                 	//document.getElementById( "profile_pic" ).style.visibility = "visible";
                 	$("#profile_name")[0].innerHTML = response.name;

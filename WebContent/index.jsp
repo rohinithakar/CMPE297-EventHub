@@ -49,10 +49,12 @@
 			
 			<div class="right">
 				<div style="display:inline-block; vertical-align:top; margin-left:275px;">
-				<a href="index.html" id="home" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="font-size: 14px; color: #ffffff;" data-inline="true">
+				<a href="index.jsp" id="home" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="font-size: 14px; color: #561243;" data-inline="true">
 				<span class="ui-button-text">Home</span>
 				</a> 
 				<a id="login-user" style="font-size: 14px; color: #561243" data-inline="true">Login</a>
+				<a id="logout-user" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" 
+				style="font-size:14px;color: #561243;data-inline:true;display:none"><span class="ui-button-text">LogOut</span></a>
 				<a id="create-user" style="font-size: 14px; color: #561243;" data-inline="true">Register</a>
 				<span id = "fblogin" style="data-inline:true;">
   				<a href="javascript:login();"> <img src="img/fb-login.png"></a>
@@ -295,7 +297,7 @@
 			<fieldset style="display:inline;">
 				<label for="email_login">Email</label> <input type="text" name="email_login" id="email_login" value="" class="text ui-widget-content ui-corner-all" /><br>
 				<label for="password_login">Password</label> <input type="password" name="password_login" id="password_login" value="" class="text ui-widget-content ui-corner-all"/> <br>
-				<!-- <a href="index.html" id="forgotPwd" style="margin-left: 550px; font-size: 14px; color: #ffffff"data-inline="true">Forgot Password?</a> -->
+				<!-- <a href="index.html" id="forgotPwd" style="margin-left: 550px; font-size: 12px; color: #ffffff"data-inline="true">Forgot Password?</a> -->
 			</fieldset>
 		</form>
 	</div> 

@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -24,6 +25,8 @@ public class GetLoginDetails extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		
 		response.setContentType("application/json");
 		StringBuffer jb = new StringBuffer();
 		String line = null;
@@ -62,21 +65,27 @@ public class GetLoginDetails extends HttpServlet {
 			}
 
 			String query = "select userName and password from eventPlanning.user where userName= '"+email+"' and password = '"
-					+password+"';";
+					+securePwd+"';";
 			System.out.println("Query: "+query);
 			rs = stmt.executeQuery(query);
+			System.out.println("rs: "+rs);
+			JSONObject resp = new JSONObject();
 
 			if(rs != null){
 				if(rs.next()){
+					session.setAttribute("userId", "1234");
 					System.out.println("Login Sucessful!");
+					resp.put("errorCode",200);
+					resp.put("responseText","Success");
+				}
+				else{
+					session.setAttribute("error", "error");
+					System.out.println("Login failed");
+					resp.put("errorCode",300);
+					resp.put("responseText","Failure");
 				}
 
 			}
-
-
-			JSONObject resp = new JSONObject();
-			resp.put("errorCode",200);
-			resp.put("responseText","Success");
 			response.getWriter().write(resp.toString());
 
 		} catch (JSONException e1) {
