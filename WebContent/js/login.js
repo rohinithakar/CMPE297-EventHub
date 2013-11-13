@@ -40,8 +40,8 @@ $(function() {
 	 */
 	$( "#dialog-form1" ).dialog({
 		autoOpen: false,
-		height: 250,
-		width: 400,
+		height: 300,
+		width: 350,
 		modal: true,
 		buttons: {
 			"Login": function() {
@@ -86,9 +86,11 @@ $(function() {
 							document.getElementById("login-user").style.display = "none";  
 							document.getElementById("create-user").style.display = "none";
 							document.getElementById("fblogin").style.display = "none";
-							document.getElementById("logout-user").style.display = "inline-block";  
+							document.getElementById("logout-user").style.display = "inline-block";
+							$( "#dialog-form1").dialog( "close" );
 						}
 						else{
+							document.getElementById("errorMessage").innerHTML = "Invalid Input. Try again.";
 							console.log("Uh-oh - Something went wrong, try again!");
 						}
 					}
@@ -110,10 +112,11 @@ $(function() {
 		$( "#dialog-form1" ).dialog( "open" );
 	});
 
-
+/*
 	$( "#logout-user" )
 	.button()
 	.click(function() {
+		
 		console.log("Logging Out..");
 		document.getElementById("login-user").style.display = "inline-block";  
 		document.getElementById("create-user").style.display = "inline-block";
@@ -122,5 +125,5 @@ $(function() {
 		console.log("Logged out");
 	});
 
-
+*/
 });

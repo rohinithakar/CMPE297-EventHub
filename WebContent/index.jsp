@@ -53,7 +53,7 @@
 				<span class="ui-button-text">Home</span>
 				</a> 
 				<a id="login-user" style="font-size: 14px; color: #561243" data-inline="true">Login</a>
-				<a id="logout-user" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" 
+				<a id="logout-user" href="logOut.jsp" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" 
 				style="font-size:14px;color: #561243;data-inline:true;display:none"><span class="ui-button-text">LogOut</span></a>
 				<a id="create-user" style="font-size: 14px; color: #561243;" data-inline="true">Register</a>
 				<span id = "fblogin" style="data-inline:true;">
@@ -278,12 +278,13 @@
 
 		<form>
 			<fieldset  style="display:inline;">
+				<p id="error1" style="font-size:12px;"></p>
 				<label for="fname">First Name</label>
-				<input type="text" name="name" id="fname" class="text ui-widget-content ui-corner-all" style="font-size: 12px;"/><br>
+				<input type="text"  name="name"  id="fname" class="text ui-widget-content ui-corner-all" style="font-size: 12px;"/><br>
 				<label for="lname">Last Name</label>
-				<input type="text" name="lname" id="lname" class="text ui-widget-content ui-corner-all" style="font-size: 12px;" /><br>
+				<input type="text"  name="lname"  id="lname" class="text ui-widget-content ui-corner-all" style="font-size: 12px;" /><br>
 				<label for="email_reg">Email</label>
-				<input type="text" name="email_reg" id="email_reg" class="text ui-widget-content ui-corner-all" style="font-size: 12px;" /><br>
+				<input type="text"  name="email_reg"  id="email_reg" class="text ui-widget-content ui-corner-all" style="font-size: 12px;" /><br>
 				<label for="password">Password</label>
 				<input type="password" name="password" id="password_reg" class="text ui-widget-content ui-corner-all" style="font-size: 12px;"/>
 			</fieldset>
@@ -295,8 +296,9 @@
 
 		<form>
 			<fieldset style="display:inline;">
-				<label for="email_login">Email</label> <input type="text" name="email_login" id="email_login" value="" class="text ui-widget-content ui-corner-all" /><br>
-				<label for="password_login">Password</label> <input type="password" name="password_login" id="password_login" value="" class="text ui-widget-content ui-corner-all"/> <br>
+				<p id="errorMessage" style="font-size:12px;"></p>
+				<label for="email_login">Email</label> <input type="text" name="email_login" id="email_login" style="font-size:12px;" class="text ui-widget-content ui-corner-all" /><br>
+				<label for="password_login">Password</label> <input type="password" name="password_login" id="password_login" style="font-size:12px;" class="text ui-widget-content ui-corner-all"/> <br>
 				<!-- <a href="index.html" id="forgotPwd" style="margin-left: 550px; font-size: 12px; color: #ffffff"data-inline="true">Forgot Password?</a> -->
 			</fieldset>
 		</form>

@@ -83,11 +83,11 @@ $(function() {
         		data: requestJson,
         		success: function(data){
         			if(data.errorCode == 200 && data.responseText == "Success"){
-        			console.log("success");
-        			alert("SignUp Successful..!!");
+        				console.log("Registration sucess..!!");
+        				$("#dialog-form").dialog( "close" );
         			}
         			else{
-        				alert("Uh-oh - Something went wrong, try again!");
+        				document.getElementById("error1").innerHTML = "Registration Failed.Try Again";
         			}
         		}
         	});

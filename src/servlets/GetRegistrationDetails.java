@@ -54,6 +54,8 @@ public class GetRegistrationDetails extends HttpServlet {
 		response.setContentType("application/json");
 		StringBuffer jb = new StringBuffer();
 		String line = null;
+		JSONObject jsonObject = null;
+		JSONObject resp = new JSONObject();
 		try {
 			BufferedReader reader = request.getReader();
 			while ((line = reader.readLine()) != null)
@@ -65,7 +67,8 @@ public class GetRegistrationDetails extends HttpServlet {
 		}
 
 		try {
-			JSONObject jsonObject = new JSONObject(jb.toString());
+			jsonObject = new JSONObject(jb.toString());
+			
 			System.out.println("jsonObject:"+jsonObject.toString());
 		
 			String firstName = jsonObject.getString("firstName");
@@ -96,12 +99,12 @@ public class GetRegistrationDetails extends HttpServlet {
 					"VALUES ('"+securePwd+"','"+firstName+"','"+lastName+"','"+email+"')";
 			System.out.println("Query: "+query);
 			int rowCount = stmt.executeUpdate(query);
-
+			
+			
 			if(rowCount>0){
 				String result = "true";
 				System.out.println("Insert Successful");
 				
-				JSONObject resp = new JSONObject();
 				resp.put("errorCode",200);
 				resp.put("responseText","Success");
 				response.getWriter().write(resp.toString());
@@ -113,7 +116,6 @@ public class GetRegistrationDetails extends HttpServlet {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (InstantiationException e1) {
 			// TODO Auto-generated catch block
