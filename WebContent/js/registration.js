@@ -3,9 +3,9 @@ $(function() {
     var  email = $( "#email" );
     var password = $( "#password" );
     
-  /*  var  allFields = $( [] ).add( name ).add( email ).add( password ),
+   var  allFields = $( [] ).add( name ).add( email ).add( password ),
       tips = $( ".validateTips" );
- 
+ /*
     function updateTips( t ) {
       tips
         .text( t )
@@ -38,7 +38,7 @@ $(function() {
  
     $( "#dialog-form" ).dialog({
       autoOpen: false,
-      height: 275,
+      height: 350,
       width: 350,
       modal: true,
       buttons: {
@@ -72,6 +72,8 @@ $(function() {
         	user.lastName = lname.value;
         	user.email = email_reg.value;
         	user.password = password_reg.value;
+        	user.question = question.value;
+        	user.answer = answer.value;
         	
         	var requestJson = JSON.stringify(user);
         	console.log("Json String: "+requestJson);

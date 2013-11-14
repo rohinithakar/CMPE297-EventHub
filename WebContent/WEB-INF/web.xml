@@ -39,4 +39,24 @@
     <servlet-name>GetLoginDetails</servlet-name>
     <url-pattern>/GetLoginDetails</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ForgotPasswordQuestion</display-name>
+    <servlet-name>ForgotPasswordQuestion</servlet-name>
+    <servlet-class>servlets.ForgotPasswordQuestion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ForgotPasswordQuestion</servlet-name>
+    <url-pattern>/ForgotPasswordQuestion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ValidateSecurityQuestion</display-name>
+    <servlet-name>ValidateSecurityQuestion</servlet-name>
+    <servlet-class>servlets.ValidateSecurityQuestion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ValidateSecurityQuestion</servlet-name>
+    <url-pattern>/ValidateSecurityQuestion</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -11,11 +11,10 @@
 	<meta name="keywords" content="event planning, birthday party, wedding planning, new year party" />
 	<meta name="author" content="Codrops" />
 	
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> 
-
-
+	
 	<link rel="shortcut icon" href="../favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
 	<link rel="stylesheet" type="text/css" href="css/bookblock.css" />
@@ -32,6 +31,7 @@
 	<script src="js/login.js"></script>
 	<script src="//connect.facebook.net/en_US/all.js"></script>
 	<script src="js/fb.js"></script>
+	<script src="js/forgotPassword.js"></script>
 
 
 </head>
@@ -287,6 +287,10 @@
 				<input type="text"  name="email_reg"  id="email_reg" class="text ui-widget-content ui-corner-all" style="font-size: 12px;" /><br>
 				<label for="password">Password</label>
 				<input type="password" name="password" id="password_reg" class="text ui-widget-content ui-corner-all" style="font-size: 12px;"/>
+				<label for="question">Question</label>
+				<input type="text" name="question" id="question" class="text ui-widget-content ui-corner-all" style="font-size: 12px;"/>
+				<label for="answer">Answer</label>
+				<input type="text" name="answer" id="answer" class="text ui-widget-content ui-corner-all" style="font-size: 12px;"/>
 			</fieldset>
 		</form>
 	</div> 
@@ -294,12 +298,14 @@
 	  <div id="dialog-form1" title="Login">
 		<p class="validateTips">All form fields are required.</p>
 
-		<form>
+		<form id="login_form">
 			<fieldset style="display:inline;">
 				<p id="errorMessage" style="font-size:12px;"></p>
 				<label for="email_login">Email</label> <input type="text" name="email_login" id="email_login" style="font-size:12px;" class="text ui-widget-content ui-corner-all" /><br>
 				<label for="password_login">Password</label> <input type="password" name="password_login" id="password_login" style="font-size:12px;" class="text ui-widget-content ui-corner-all"/> <br>
-				<!-- <a href="index.html" id="forgotPwd" style="margin-left: 550px; font-size: 12px; color: #ffffff"data-inline="true">Forgot Password?</a> -->
+				<a href='javascript:forgotPassword();' id="forgotPwd" style="font-size: 12px;"data-inline="true">
+				<span>Forgot Password?</span>
+				</a> 
 			</fieldset>
 		</form>
 	</div> 

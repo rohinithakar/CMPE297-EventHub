@@ -77,6 +77,11 @@ public class GetRegistrationDetails extends HttpServlet {
 			System.out.println("lastName:"+lastName);
 			String email = jsonObject.getString("email");
 			System.out.println("email:"+email);
+			String question = jsonObject.getString("question");
+			System.out.println("question:"+question);
+			String answer = jsonObject.getString("answer");
+			System.out.println("answer:"+answer);
+			
 			String password = jsonObject.getString("password");
 			System.out.println("password:"+password);
 			String securePwd = encryptPassword(password);
@@ -95,8 +100,8 @@ public class GetRegistrationDetails extends HttpServlet {
 				System.out.println("Successfully Connected!");
 			}
 
-			String query = "INSERT INTO eventPlanning.user(password,firstName,lastName,userName)"+
-					"VALUES ('"+securePwd+"','"+firstName+"','"+lastName+"','"+email+"')";
+			String query = "INSERT INTO eventPlanning.user(password,firstName,lastName,userName,securityQuestion,answer)"+
+					"VALUES ('"+securePwd+"','"+firstName+"','"+lastName+"','"+email+"','"+question+"','"+answer+"')";
 			System.out.println("Query: "+query);
 			int rowCount = stmt.executeUpdate(query);
 			
