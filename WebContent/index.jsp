@@ -47,16 +47,21 @@
 				<span class="s_heading" style="font-size: 14px; float:left">Birthday &#9679; Wedding &#9679; Christmas</span>
 			</div>
 			
-			<div class="right">
-				<div style="display:inline-block; vertical-align:top; margin-left:275px;">
+		<div class="right">
+				<div style="display:inline-block; vertical-align:top; margin-left:200pxx;">
 				<a href="index.jsp" id="home" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="font-size: 14px; color: #561243;" data-inline="true">
 				<span class="ui-button-text">Home</span>
-				</a> 
-				<a id="login-user" style="font-size: 14px; color: #561243" data-inline="true">Login</a>
+				</a>
+				<% Integer userId = (Integer)session.getAttribute("userId"); %>
+				
+				<a id="viewSummary" href="SummaryPage.jsp" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" 
+				style="font-size:14px;color: #561243;<%if(userId == null){ %>display:none; <% } %>" data-inline="true"; ><span class="ui-button-text">MyEvents</span></a>
+				
+				<a id="login-user" style="font-size: 14px; color: #561243; <%if( userId != null){ %>display:none; <% } %>" data-inline="true";>Login</a>
 				<a id="logout-user" href="logOut.jsp" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" 
-				style="font-size:14px;color: #561243;data-inline:true;display:none"><span class="ui-button-text">LogOut</span></a>
-				<a id="create-user" style="font-size: 14px; color: #561243;" data-inline="true">Register</a>
-				<span id = "fblogin" style="data-inline:true;">
+				style="font-size:14px;color: #561243;<%if(userId == null){ %>display:none; <% } %>" data-inline="true"; ><span class="ui-button-text">LogOut</span></a>
+				<a id="create-user" style="font-size: 14px; color: #561243; <%if(userId != null){ %>display:none; <% } %>" data-inline="true">Register</a>
+				<span id = "fblogin" style="data-inline:true; <%if(userId != null){ %>display:none; <% } %>">
   				<a href="javascript:login();"> <img src="img/fb-login.png"></a>
    				</span>
 				</div>
@@ -284,7 +289,7 @@
 				<label for="lname">Last Name</label>
 				<input type="text"  name="lname"  id="lname" class="text ui-widget-content ui-corner-all" style="font-size: 12px;" /><br>
 				<label for="email_reg">Email</label>
-				<input type="text"  name="email_reg"  id="email_reg" class="text ui-widget-content ui-corner-all" style="font-size: 12px;" /><br>
+				<input type="text"  name="email_reg"  id="email_reg"  class="text ui-widget-content ui-corner-all" style="font-size: 12px;" /><br>
 				<label for="password">Password</label>
 				<input type="password" name="password" id="password_reg" class="text ui-widget-content ui-corner-all" style="font-size: 12px;"/>
 				<label for="question">Question</label>
@@ -315,4 +320,6 @@
 	</div>
 
 </body>
+
+
 </html>

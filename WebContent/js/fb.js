@@ -57,7 +57,8 @@ window.fbAsyncInit = function()
                     	console.log("in else");
                     	console.log(response);
                     }
-                }
+                },
+                { scope: 'email'}
             );
         }
         
@@ -72,6 +73,7 @@ window.fbAsyncInit = function()
       	  $("#fblogin")[0].style.display = "inline-block";
     	  //document.getElementById("fblogout").style.visibility = "hidden";   	  
       	  document.getElementById("fblogout").style.display = "none"; 
+      	document.getElementById("viewSummary").style.display = "none"; 
         	
           document.getElementById( "profile_name" ).style.visibility = "hidden";
           document.getElementById( "profile_pic" ).style.visibility = "hidden";
@@ -87,26 +89,51 @@ window.fbAsyncInit = function()
             (
                 "/me",
                 function( response )
-                {
-                	console.log(response);
-                	document.getElementById("fblogin").style.visibility = "hidden";
-                	document.getElementById("fblogin").style.display = "none";
-                	document.getElementById("login-user").style.display = "none";  
-                	document.getElementById("create-user").style.display = "none";  
-                	document.getElementById("fblogout").style.visibility = "visible"; 
+                {   
+                	console.log("Response:"+response);
                 	
-                	//  document.getElementById("fblogout").style.display = "block";   
-                
-                	$("#profile_name")[0].style.visibility = "visible";
-                	$("#profile_pic")[0].style.visibility = "visible";
-                	$("#profile_name")[0].style.display = "inline-block";
-                	$("#profile_pic")[0].style.display = "inline-block";
-                	$("#profile_pic")[0].src = "http://graph.facebook.com/" + response.id + "/picture"
-                	//document.getElementById( "profile_pic" ).style.visibility = "visible";
-                	$("#profile_name")[0].innerHTML = response.name;
-                	//document.getElementById( "profile_pic" ).src = "http://graph.facebook.com/" + response.id + "/picture";
-                	  
+                	var query = FB.Data.query('select name,email,hometown_location, sex, pic_square from user where uid={0}', response.id);
+                    query.wait(function(rows) {
+                      var email = rows[0].email;
+                      console.log("Email: "+email);
+                      
+                      var user = {};
+                      user.email = email;
+                      var requestJson = JSON.stringify(user);
+      				  console.log("Json String: "+requestJson);
+      				  
+                      $.ajax({
+      					url: "FBRegisterLoginUser",
+      					type: "POST",
+      					context: document.body,
+      					data: requestJson,
+      					success: function(data){
+      						if(data.errorCode == 200 && data.responseText == "Success"){
+      							console.log("Login Successful..!!");
+      							document.getElementById("fblogin").style.visibility = "hidden";
+      		                	document.getElementById("fblogin").style.display = "none";
+      		                	document.getElementById("login-user").style.display = "none";  
+      		                	document.getElementById("create-user").style.display = "none";  
+      		                	document.getElementById("viewSummary").style.display = "inline-block"; 
+      		                	document.getElementById("fblogout").style.visibility = "visible"; 
+      		                	
+      		                	$("#profile_name")[0].style.visibility = "visible";
+      		                	$("#profile_pic")[0].style.visibility = "visible";
+      		                	$("#profile_name")[0].style.display = "inline-block";
+      		                	$("#profile_pic")[0].style.display = "inline-block";
+      		                	$("#profile_pic")[0].src = "http://graph.facebook.com/" + response.id + "/picture";
+      		                	
+      		                	$("#profile_name")[0].innerHTML = response.name;
+
+      						}
+      						else{
+      							alert("Login Failed. Try Again.");
+      						}
+      					}
+      				});   
+                	
                 }
             );
+        });
         }
         

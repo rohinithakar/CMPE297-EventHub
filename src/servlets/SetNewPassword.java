@@ -45,6 +45,7 @@ public class SetNewPassword extends HttpServlet {
 
 				String newPwd = jsonObject.getString("value");
 				String email = jsonObject.getString("email");
+				String securePwd = GetRegistrationDetails.encryptPassword(newPwd);
 				
 
 				Connection con = null;
@@ -64,7 +65,7 @@ public class SetNewPassword extends HttpServlet {
 				}
 				
 
-				String query = "update eventPlanning.User set password = '"+newPwd+"' where userName = '"+email+"'";
+				String query = "update eventPlanning.User set password = '"+securePwd+"' where userName = '"+email+"'";
 				System.out.println("Query: "+query);
 				rowCount = stmt.executeUpdate(query);
 				

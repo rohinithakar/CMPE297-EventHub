@@ -8,14 +8,5 @@
 </head>
 
 <%session.invalidate();%>
-
-
-<body>
-document.getElementById("login-user").style.display = "inline-block";
-document.getElementById("create-user").style.display = "inline-block";
-document.getElementById("fblogin").style.display = "inline-block";
-document.getElementById("logout-user").style.display = "none";
-</body>
-
 <% response.sendRedirect("index.jsp"); %>
 </html>

@@ -67,6 +67,11 @@ $(function() {
         	
             $( this ).dialog( "close" );
           } */
+        	
+        	if((fname.value == null || fname.value=="")||(lname.value == null || lname.value=="")||(email_reg.value == null || email_reg.value=="")||(password_reg.value == null || password_reg.value=="")||(question.value == null || question.value=="")||(answer.value == null || answer.value=="")){
+        		document.getElementById("error1").innerHTML = "Invalid Input.Please fill all the details";
+        		return;
+        	}
         	var user = {};
         	user.firstName = fname.value;
         	user.lastName = lname.value;

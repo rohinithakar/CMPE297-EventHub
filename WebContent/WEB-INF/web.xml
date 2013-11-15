@@ -79,4 +79,14 @@
     <servlet-name>SetNewPassword</servlet-name>
     <url-pattern>/SetNewPassword</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FBRegisterLoginUser</display-name>
+    <servlet-name>FBRegisterLoginUser</servlet-name>
+    <servlet-class>servlets.FBRegisterLoginUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FBRegisterLoginUser</servlet-name>
+    <url-pattern>/FBRegisterLoginUser</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -95,7 +95,10 @@ input {
     text-align: right;
 }
 
-#question{
-font-size:12px;
+#dialog-form1 input {
+	font-size:12px;
 }
 
+#login_form {
+	font-size:12px;
+}

@@ -63,7 +63,7 @@ function forgotPassword(){
 
 									var newHTML3 = "<fieldset style=\"display:inline;\"><p id=\"errorMessage\" style=\"font-size:12px;\"></p><label for=\"newPwd\">New Password</label>" +
 									" <input type=\"text\" name=\"newPwd\" id=\"newPwd\" class=\"text ui-widget-content ui-corner-all\" />" +
-									"<br><label for=\"confirmPwd\">Confirm Password</label><br> <input type=\"text\" name=\"confirmPwd\" id=\"confirmPwd\"" +
+									"<label for=\"confirmPwd\">Confirm Password</label><input type=\"text\" name=\"confirmPwd\" id=\"confirmPwd\"" +
 									" style=\"font-size:12px;\" class=\"text ui-widget-content ui-corner-all\"/></fieldset>";
 
 									document.getElementById("login_form").innerHTML = newHTML3;
@@ -126,13 +126,7 @@ function forgotPassword(){
 		});
 
 
-
 	} } ] });
-
-
-
-
-
 
 }
 

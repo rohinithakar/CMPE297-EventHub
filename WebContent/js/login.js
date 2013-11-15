@@ -70,9 +70,15 @@ $(function() {
 				var user = {};
 				user.email = email_login.value;
 				user.password = password_login.value;
+				
+				if((email_login.value == null || email_login.value=="")||(password_login.value == null || password_login.value=="")){
+					document.getElementById("errorMessage").innerHTML = "Invalid Input. Please fill all details.";
+					return;
+				}
 
 				var requestJson = JSON.stringify(user);
 				console.log("Json String: "+requestJson);
+				
 
 				$.ajax({
 					url: "GetLoginDetails",
@@ -99,10 +105,12 @@ $(function() {
 			},
 			Cancel: function() {
 				$( this ).dialog( "close" );
+				parent.reloadContent(); // added by Rohini
 			}
 		},
 		close: function() {
 			allFields.val( "" ).removeClass( "ui-state-error" );
+			parent.reloadContent(); // added by Rohini
 		}
 	});
 
@@ -127,3 +135,9 @@ $(function() {
 
 */
 });
+
+
+//added by Rohini
+function reloadContent() {
+    location.reload();
+}
