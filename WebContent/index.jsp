@@ -65,6 +65,7 @@
   				<a href="javascript:login();"> <img src="img/fb-login.png"></a>
    				</span>
 				</div>
+				<div style="font-size=12px;"><span><%if(userId != null){ %>Welcome! <% } %> </span></div>
 				
    				
   			    <div id = "fblogout" style="display:inline-block;visibility:hidden;">

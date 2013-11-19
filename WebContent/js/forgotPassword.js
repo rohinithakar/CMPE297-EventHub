@@ -104,6 +104,7 @@ function forgotPassword(){
 
 
 								}else{
+									console.log("Inside Erorr");
 									$("#errorMessage").innerHTML = "Erorr. Try Again.";
 								}
 							}

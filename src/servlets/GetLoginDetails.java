@@ -64,7 +64,7 @@ public class GetLoginDetails extends HttpServlet {
 				System.out.println("Successfully Connected!");
 			}
 
-			String query = "select userName, password, userId from eventPlanning.user where userName= '"+email+"' and password = '"
+			String query = "select userName,firstName, password, userId from eventPlanning.user where userName= '"+email+"' and password = '"
 					+securePwd+"';";
 			System.out.println("Query: "+query);
 			rs = stmt.executeQuery(query);
@@ -75,6 +75,7 @@ public class GetLoginDetails extends HttpServlet {
 				if(rs.next()){
 					int userId =  rs.getInt("userId");
 					session.setAttribute("userId", userId);
+				
 					System.out.println("UserId: "+ userId);
 					System.out.println("Login Sucessful!");
 					resp.put("errorCode",200);
